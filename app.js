@@ -9,6 +9,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+var usuarioRouter = require('./routes/rest_usuario');
+var ejercicioRouter = require('./routes/rest_ejercicio');
+var registroRouter = require('./routes/rest_registro');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -21,6 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+/* RELACIÓN ENTRE LA RUTA DEL URL CON LA REFERENCIA CON EL MANEJADOR DE RUTAS */
+app.use('/rest/usuario', usuarioRouter);
+app.use('/rest/ejercicio', ejercicioRouter);
+app.use('/rest/registro', registroRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
