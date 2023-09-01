@@ -16,6 +16,16 @@ var registroRouter = require('./routes/rest_registro');
 /* MÓDULO CORS */
 var cors = require('cors')
 
+/* REFERENCIA AL MÓDULO */
+const swaggerUi = require('swagger-ui-express')
+/* REFERENCIA AL ARCHIVO GENERADO */
+const swaggerFile = require('./swagger_output.json')
+
+
+
+/* CONFIGURACIÓN DE LA RUTA A LA DOCUMENTACIÓN */
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+
 /* AGREGUE EL MIDDLEWARE CORS */
 app.use(cors());
 
