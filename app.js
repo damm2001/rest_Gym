@@ -13,6 +13,12 @@ var usuarioRouter = require('./routes/rest_usuario');
 var ejercicioRouter = require('./routes/rest_ejercicio');
 var registroRouter = require('./routes/rest_registro');
 
+/* MÓDULO CORS */
+var cors = require('cors')
+
+/* AGREGUE EL MIDDLEWARE CORS */
+app.use(cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
